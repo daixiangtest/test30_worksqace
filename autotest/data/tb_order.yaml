@@ -1,0 +1,44 @@
+---
+- case_id: 1
+  case_title: 订单信息查询接口-主流程
+  interface: login
+  url: http://127.0.0.1:6666/business/order_items
+  case_data: {"token": "tkk&", "orderId": "10000"}
+  expect: 查询成功
+
+- case_id: 2
+  case_title: 订单信息查询接口-token为空
+  interface: login
+  url: http://127.0.0.1:6666/business/order_items
+  case_data: {"token": "", "orderId": "10000"}
+  expect: token值不能为空
+
+- case_id: 3
+  case_title: 订单信息查询接口-订单编号为空
+  interface: login
+  url: http://127.0.0.1:6666/business/order_items
+  case_data: {"token": "tkk&", "orderId": ""}
+  expect: 订单编号不能为空
+
+- case_id: 4
+  case_title: 订单信息查询接口-订单编号格式不正确
+  interface: login
+  url: http://127.0.0.1:6666/business/order_items
+  case_data: {"token": "tkk&", "orderId": "100001"}
+  expect: 订单编号格式不正确
+
+- case_id: 5
+  case_title: 订单信息查询接口-token值错误
+  interface: login
+  url: http://127.0.0.1:6666/business/order_items
+  case_data: {"token": "12&12", "orderId": "10000"}
+  expect: 鉴权失败
+
+- case_id: 6
+  case_title: 订单信息查询接口-商品不存在
+  interface: login
+  url: http://127.0.0.1:6666/business/order_items
+  case_data: {"token": "tkk&", "orderId": "40000"}
+  expect: 查询无结果
+
+...

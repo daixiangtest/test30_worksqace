@@ -1,0 +1,6 @@
+name: xiaohua
+age: 18
+sex: 女
+mysql:
+  user: root
+  password: '12345'

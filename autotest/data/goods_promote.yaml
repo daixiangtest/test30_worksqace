@@ -1,0 +1,7 @@
+---
+- case_id: 1
+  case_title: 商品促销设置
+  interface: goods_promote
+  url: http://127.0.0.1:6666/business/goods_promote
+  case_data: {"token": "tkk&", "promoteStartTime": "2022-12-29","promoteEndTime":"2022-12-31","goodsId":"100001"}
+  expect: 促销开启设置成功

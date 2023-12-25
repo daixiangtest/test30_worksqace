@@ -1,0 +1,28 @@
+---
+- case_id: 1
+  case_title: 商品删除接口-冒烟测试
+  interface: goods_delete
+  url: http://127.0.0.1:6666/business/goods_delete
+  case_data: {"token": "tkk&", "goodsId": "100012"}
+  expect: 商品删除成功
+
+- case_id: 2
+  case_title: 商品删除接口—商品编号为空
+  interface: goods_delete
+  url: http://127.0.0.1:6666/business/goods_delete
+  case_data: {"token": "tkk&", "goodsId": ""}
+  expect: 商品编号不能为空
+
+- case_id: 3
+  case_title: 商品删除接口—商品编号不存在
+  interface: goods_delete
+  url: http://127.0.0.1:6666/business/goods_delete
+  case_data: {"token": "tkk&", "goodsId": "999999"}
+  expect: 该商品不存在
+
+- case_id: 4
+  case_title: 商品删除接口—商品未下架
+  interface: goods_delete
+  url: http://127.0.0.1:6666/business/goods_delete
+  case_data: {"token": "tkk&", "goodsId": "100000"}
+  expect: 当前商品没有下架，不允许删除

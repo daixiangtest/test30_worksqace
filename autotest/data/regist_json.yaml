@@ -1,0 +1,7 @@
+---
+- case_id: 1
+  case_title: 注册接口-冒烟测试
+  interface: regist_json
+  url: http://127.0.0.1:6666/business/regist_json
+  case_data: { "username": "xiaobai1","password": "baibai12","re_password": "baibai12","phone": "15658885889","sex": "","birthday": "","qq": "","email": "" }
+  expect: 注册成功

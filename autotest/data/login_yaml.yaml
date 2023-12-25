@@ -1,0 +1,36 @@
+---
+- case_id: 1
+  case_title: 主流程测试
+  interface: sign
+  url: http://127.0.0.1:5000/sign
+  case_data: {"username": "hbcd123", "password": "hbcd123"}
+  expect: {"code": 1007, "msg": "登录成功!"}
+
+- case_id: 2
+  case_title: 用户名输入为空
+  interface: sign
+  url: http://127.0.0.1:5000/sign
+  case_data: {"username": "", "password": "hbcd123"}
+  expect: {'code': 1003, 'msg': '用户名输入不能为空!'}
+
+- case_id: 3
+  case_title: 登录密码为空
+  interface: sign
+  url: http://127.0.0.1:5000/sign
+  case_data: {"username": "hbcd123", "password": ""}
+  expect: {"code": 1004, "msg": "密码输入不能为空!"}
+
+- case_id: 4
+  case_title: 登录用户名错误
+  interface: sign
+  url: http://127.0.0.1:5000/sign
+  case_data: {"username": "hbcd123a", "password": "hbcd123"}
+  expect: {"code": 1005, "msg": "用户名不存在!"}
+
+- case_id: 5
+  case_title: 登录密码错误
+  interface: sign
+  url: http://127.0.0.1:5000/sign
+  case_data: {"username": "hbcd123", "password": "hbcd12a3"}
+  expect: {"code": 1006, "msg": "密码错误!"}
+...

@@ -1,0 +1,68 @@
+---
+- case_id: 1
+  case_title: 用户名为空
+  interface: tianmao
+  url: http://127.0.0.1:5589/tianmao
+  case_data: { "username": "", "psw": "asn12456", "re_psw": "asn12456", "phone": 13556545654,"email": "98364@qq.com" }
+  expect: { "code": 1006, "msg": "用户名输入不能为空!" }
+- case_id: 2
+  case_title: 密码输入为空
+  interface: tianmao
+  url: http://127.0.0.1:5589/tianmao
+  case_data: { "username": "xiaoyao1", "psw": "", "re_psw": "", "phone": "15325456532", "email": "123@163.com" }
+  expect: { "code": 1007, "msg": "密码不能为空!" }
+- case_id: 3
+  case_title: 手机号输入为空
+  interface: tianmao
+  url: http://127.0.0.1:5589/tianmao
+  case_data: { "username": "xiaoyao01", "psw": "abd3826", "re_psw": "abd3826", "phone": "", "email": "235@163.com" }
+  expect: { "code": 1008, "msg": "手机号不能为空!" }
+- case_id: 4
+  case_title: 手机号格式错误
+  interface: tianmao
+  url: http://127.0.0.1:5589/tianmao
+  case_data: { "username": "xiaoyao01", "psw": "abd3826", "re_psw": "abd3826", "phone": 15656355632,"email": "" }
+  expect: { "code": 1009, "msg": "手机号格式错误!" }
+- case_id: 5
+  case_title: 邮箱输入为空
+  interface: tianmao
+  url: http://127.0.0.1:5589/tianmao
+  case_data: { "username": "xiaoyao01", "psw": "adb3826", "re_psw": "adb3826", "phone": 15656355632,"email": "" }
+  expect: { "code": 1010, "msg": "邮箱格式输入不能为空!" }
+- case_id: 6
+  case_title: 确认密码不一致
+  interface: tianmao
+  url: http://127.0.0.1:5589/tianmao
+  case_data: { "username": "xiaoyao01", "psw": "adb3826", "re_psw": "abd3826", "phone": 15656355632,"email": "9864@qq.com" }
+  expect: { "code": 1011, "msg": "两次密码不一致!" }
+- case_id: 7
+  case_title: 邮箱格式不正确
+  interface: tianmao
+  url: http://127.0.0.1:5589/tianmao
+  case_data: { "username": "xiaoyao01", "psw": "adb3826", "re_psw": "adb3826", "phone": 15656356532,"email": "6543." }
+  expect: { "code": 1012, "msg": "邮箱格式不正确!" }
+- case_id: 8
+  case_title: 用户名已经注册
+  interface: tianmao
+  url: http://127.0.0.1:5589/tianmao
+  case_data: {"username": "hbcd123", "psw": "hbcd123", "re_psw": "hbcd123", "phone":15656356532,"email": "9865@qq.com" }
+  expect: { "code": 1013, "msg": "用户名已经注册!" }
+- case_id: 9
+  case_title: 邮箱已经注册
+  interface: tianmao
+  url: http://127.0.0.1:5589/tianmao
+  case_data: { "username": "xiaoyao1", "psw": "hbcd123", "re_psw": "hbcd123", "phone": 15656356532,"email": "986531321@qq.com" }
+  expect: { "code": 1014, "msg": "邮箱已经使用!" }
+- case_id: 10
+  case_title: 手机号已经注册
+  interface: tianmao
+  url: http://127.0.0.1:5589/tianmao
+  case_data: { "username": "xiaoyao", "psw": "abd1254", "re_psw": "abd1254", "phone": 15896535251, "email": "9865@qq.com" }
+  expect: {"code": 1015, "msg": "手机号已经注册!"}
+- case_id: 11
+  case_title: 主流程测试
+  interface: tianmao
+  url: http://127.0.0.1:5589/tianmao
+  case_data: {"username": "xiaoyao1", "psw": "abd145", "re_psw": "abd145", "phone": 18656356588,"email": "986@163.com"}
+  expect: {"code": 1016, "msg": "登录成功!"}
+

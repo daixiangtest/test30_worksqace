@@ -1,0 +1,39 @@
+---
+- case_id: 1
+  case_title: 商品信息录入接口-冒烟测试
+  interface: login
+  url: http://127.0.0.1:6666/business/goods_input
+  case_data: {"token": "tkk&", "goodsName": "小刘电动车","goodsTypeId":"10000","desc":"没电了也能跑，比飞机快比火车猛","number":"10000","shopPrice":"9999.99"}
+  expect: 商品录入成功
+
+- case_id: 2
+  case_title: 商品信息录入接口-token为空
+  interface: login
+  url: http://127.0.0.1:6666/business/goods_input
+  case_data: {"token": "", "goodsName": "小刘电动车","goodsTypeId":"10000","desc":"没电了也能跑，比飞机快比火车猛","number":"10000","shopPrice":"9999.99"}
+  expect: token值不能为空
+
+- case_id: 3
+  case_title: 商品信息录入接口-token错误
+  interface: login
+  url: http://127.0.0.1:6666/business/goods_input
+  case_data: {"token": "abc124", "goodsName": "小刘电动车","goodsTypeId":"10000","desc":"没电了也能跑，比飞机快比火车猛","number":"10000","shopPrice":"9999.99"}
+  expect: 鉴权失败
+
+- case_id: 4
+  case_title: 商品信息录入接口-商品名称为空
+  interface: login
+  url: http://127.0.0.1:6666/business/goods_input
+  case_data: {"token": "tkk&", "goodsName": "","goodsTypeId":"10000","desc":"没电了也能跑，比飞机快比火车猛","number":"10000","shopPrice":"9999.99"}
+  expect: 商品名称goodsName值不能为空
+
+- case_id: 5
+  case_title: 商品信息录入接口-商品名称边界值
+  interface: login
+  url: http://127.0.0.1:6666/business/goods_input
+  case_data: {"token": "tkk&", "goodsName": "ab","goodsTypeId":"10000","desc":"没电了也能跑，比飞机快比火车猛","number":"10000","shopPrice":"9999.99"}
+  expect: 商品名称格式不正确
+
+
+
+...

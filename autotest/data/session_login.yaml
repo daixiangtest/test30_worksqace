@@ -1,0 +1,7 @@
+---
+- case_id: 1
+  case_title: session-登录接口主流程
+  interface: session_login
+  url: http://127.0.0.1:6666/business/session_login
+  case_data: { "username": "AutoTrue", "password": "AutoTrue", "typeId": "101" }
+  expect: {"code": 1000, "msg": "登录成功"}

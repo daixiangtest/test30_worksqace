@@ -1,0 +1,140 @@
+---
+- case_id: 1
+  case_title: 注册接口-冒烟测试
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "hehe678", "password": "dx123456","re_password": "dx123456","phone": "15352633452","sex": "","birthday": "","qq": "","email": "" }
+  expect: 注册成功
+
+- case_id: 2
+  case_title: 注册接口-冒烟测试2
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "dx12345", "password": "a123456","re_password": "a123456","phone": "13825699883","sex": "男","birthday": "1998-10-09","qq": "98635463","email": "986631321@qq.com" }
+  expect: 注册成功
+
+- case_id: 3
+  case_title: 注册接口-用户名为空
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "", "password": "dx123456","re_password": "dx123456","phone": "15352633452","sex": "","birthday": "","qq": "","email": "" }
+  expect: 用户名不能为空
+
+- case_id: 4
+  case_title: 注册接口-用户名纯数字
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "1234567", "password": "dx123456","re_password": "dx123456","phone": "15352633452","sex": "","birthday": "","qq": "","email": "" }
+  expect: 用户名必须以字母开头
+
+- case_id: 5
+  case_title: 注册接口-用户名纯字母
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "abcde", "password": "dx123456","re_password": "dx123456","phone": "15352633451","sex": "","birthday": "","qq": "","email": "" }
+  expect: 由字母和数字组成 6-8位的字符串
+
+- case_id: 6
+  case_title: 注册接口-用户名其他符号
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "*/*/*/**", "password": "dx123456","re_password": "dx123456","phone": "15352633451","sex": "","birthday": "","qq": "","email": "" }
+  expect: 用户名必须以字母开头
+
+- case_id: 7
+  case_title: 注册接口-用户名边界字符
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "ac123", "password": "dx123456","re_password": "dx123456","phone": "15352633451","sex": "","birthday": "","qq": "","email": "" }
+  expect: 由字母和数字组成 6-8位的字符串
+
+- case_id: 8
+  case_title: 注册接口-用户名重复
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "hehe678", "password": "dx123456","re_password": "dx123456","phone": "15352633451","sex": "","birthday": "","qq": "","email": "" }
+  expect: 已经被注册
+
+- case_id: 9
+  case_title: 注册接口-密码为空
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "hehe668", "password": "","re_password": "dx123456","phone": "15352633451","sex": "","birthday": "","qq": "","email": "" }
+  expect: 密码不能为空
+
+- case_id: 10
+  case_title: 注册接口-密码为纯字母或纯数字
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "hehe668", "password": "abdrft","re_password": "abdrft","phone": "15352633451","sex": "","birthday": "","qq": "","email": "" }
+  expect: 密码必须为7-11位字母和数字
+
+- case_id: 11
+  case_title: 注册接口-密码为其他字符格式
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "hehe668", "password": "*/*/*/**","re_password": "*/*/*/**","phone": "15352633451","sex": "","birthday": "","qq": "","email": "" }
+  expect: 密码必须为7-11位字母和数字
+
+- case_id: 12
+  case_title: 注册接口-确认密码为空
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "hehe668", "password": "a12345","re_password": "","phone": "15352633451","sex": "","birthday": "","qq": "","email": "" }
+  expect: 重复密码不能为空
+
+- case_id: 13
+  case_title: 注册接口-确认密码不一致
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "hehe668", "password": "a123456","re_password": "a123457","phone": "15352633451","sex": "","birthday": "","qq": "","email": "" }
+  expect: 两次密码不一致
+
+- case_id: 14
+  case_title: 注册接口-手机号为空
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "hehi668", "password": "a123456","re_password": "a123456","phone": "","sex": "","birthday": "","qq": "","email": "" }
+  expect: 电话号码不能为空
+
+- case_id: 15
+  case_title: 注册接口-非11位手机号
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "hehi668", "password": "a123456","re_password": "a123456","phone": "153526334511","sex": "","birthday": "","qq": "","email": "" }
+  expect: 手机号格式错误
+
+- case_id: 16
+  case_title: 注册接口-手机号非数字
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "hehi668", "password": "a123456","re_password": "a123456","phone": "1535263345a","sex": "","birthday": "","qq": "","email": "" }
+  expect: 手机号格式错误
+
+- case_id: 17
+  case_title: 注册接口-手机号以注册
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "hehe668", "password": "a123456","re_password": "a123456","phone": "15352633452","sex": "","birthday": "","qq": "","email": "" }
+  expect: 该用户名、手机号、邮箱已经被注册
+
+- case_id: 18
+  case_title: 注册接口-性别输入其他字符
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "hehe668", "password": "a123456","re_password": "a123456","phone": "15352633451","sex": "55","birthday": "","qq": "","email": "" }
+  expect: 性别只能为男或者女
+
+- case_id: 19
+  case_title: 注册接口-生日输入其他格式
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "hehe668", "password": "a123456","re_password": "a123456","phone": "15352633451","sex": "","birthday": "156.356.","qq": "","email": "" }
+  expect: 生日格式错误
+
+- case_id: 20
+  case_title: 注册接口-生日时间大于当前时间
+  interface: login
+  url: http://127.0.0.1:6666/business/regist_form
+  case_data: { "username": "ex12346", "password": "avfdd11","re_password": "avfdd11","phone": "15352633455","sex": "女","birthday": "2025-25-23","qq": "98635463","email": "165@qq.com" }
+  expect: 生日格式错误

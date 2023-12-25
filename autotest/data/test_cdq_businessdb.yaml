@@ -1,0 +1,104 @@
+---
+- case_id: 1
+  case_title: 冒烟测试1
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "tkk&", "goodsId": "", "isOnSale": "", "isPromote": "" }
+  expect: 查询成功
+
+- case_id: 2
+  case_title: 冒烟测试2
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "tkk&", "goodsId": 100001, "isOnSale": 1, "isPromote": 1 }
+  expect: 查询成功
+
+- case_id: 3
+  case_title: token为空
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "", "goodsId": "", "isOnSale": "", "isPromote": "" }
+  expect: token值不能为空
+- case_id: 4
+  case_title: token错误
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "tkk", "goodsId": "", "isOnSale": "", "isPromote": "" }
+  expect: 鉴权失败
+- case_id: 5
+  case_title: token失效
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "MTY2OTI5OTkzOC4yMzI1MDQ0OjFlN2ExYmIxYTBkMDYyMzQ2OWQyNGEwMTcyMDg4NjM1NjRjMzQyNW=", "goodsId": "", "isOnSale": "", "isPromote": "" }
+  expect: 鉴权失败
+
+- case_id: 6
+  case_title: 不存在的编号
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "tkk&", "goodsId": "200010", "isOnSale": "", "isPromote": "" }
+  expect: 没有符合条件的数据
+
+- case_id: 7
+  case_title: 销售状态非0或非1
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "tkk&", "goodsId": "", "isOnSale": "2", "isPromote": "" }
+  expect: 商品销售状态必须为0或者1
+
+- case_id: 8
+  case_title: 促销状态非0或非1
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "tkk&", "goodsId": "", "isOnSale": "", "isPromote": "2" }
+  expect: 商品促销状态必须为0或者1
+
+- case_id: 9
+  case_title: 通过单个条件查询1
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "tkk&", "goodsId": "100000", "isOnSale": "", "isPromote": "" }
+  expect: 查询成功
+
+- case_id: 10
+  case_title: 通过单个条件查询2
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "tkk&", "goodsId": "", "isOnSale": "1", "isPromote": "" }
+  expect: 查询成功
+
+- case_id: 11
+  case_title: 通过单个条件查询3
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "tkk&", "goodsId": "", "isOnSale": "", "isPromote": "0" }
+  expect: 查询成功
+
+- case_id: 12
+  case_title: 通过两个条件查询1
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "tkk&", "goodsId": 100009, "isOnSale": "0", "isPromote": "" }
+  expect: 查询成功
+
+- case_id: 13
+  case_title: 通过单个条件查询2
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "tkk&", "goodsId": "100009", "isOnSale": "", "isPromote": "0" }
+  expect: 查询成功
+
+- case_id: 14
+  case_title: 通过单个条件查询3
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "tkk&", "goodsId": "", "isOnSale": "0", "isPromote": "1" }
+  expect: 查询成功
+
+- case_id: 14
+  case_title: 没有符合条件的数据
+  interface: 商品查询
+  url: http://127.0.0.1:6666/business/token_goodsInfo
+  case_data: { "token": "tkk&", "goodsId": "100009", "isOnSale": "1", "isPromote": "1" }
+  expect: 没有符合条件的数据
+...

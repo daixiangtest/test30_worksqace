@@ -1,0 +1,14 @@
+---
+- case_id: 1
+  case_title: session-商品查询接口主流程
+  interface: session_goods
+  url: http://127.0.0.1:6666/business/session_goodsInfo
+  case_data: { "goodsId": "", "isOnSale": "", "isPromote": "" }
+  expect: 查询出
+
+- case_id: 2
+  case_title: session-商品查询接口主流程
+  interface: session_goods
+  url: http://127.0.0.1:6666/business/session_goodsInfo
+  case_data: { "goodsId": "", "isOnSale": "", "isPromote": "" }
+  expect: session失效，必须先登录
