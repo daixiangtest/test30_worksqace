@@ -136,3 +136,8 @@ print(list(tup1))  # [1,2,3]
 phone = '18656032222'
 print(tuple(phone))  # ('1', '8', '6', '5', '6', '0', '3', '2', '2', '2', '2')
 
+# sorted函数
+list1 = [1, 2, 4, 9, 8, 3]
+a = sorted(list1)  # sorted对元素排序但是不更改原数据
+print(a)
+print(list1)

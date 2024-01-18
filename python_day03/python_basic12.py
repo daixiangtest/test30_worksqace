@@ -47,5 +47,24 @@ set1 = {1, 2, 3, 4, 5, 6, 7}
 set2 = {3, 4, 5, 6, 7, 8, 9}
 
 print(set1.intersection(set2))  # 取相同的值{3, 4, 5, 6, 7}
+print(set1 & set2)
 print(set1.union(set2))  # 取所有的值去重 {1, 2, 3, 4, 5, 6, 7, 8, 9}
-print(set1.symmetric_difference(set2))  # {1, 2, 8, 9} 差集，取两个列表中不相同的值
+print(set1 | set2)
+print(set1.symmetric_difference(set2))  # {1, 2, 8, 9} 交差补集，取两个列表中不相同的值
+print(set1 ^ set2)
+print(set1.difference(set2))  # 差集
+print(set1 - set2)
+
+# 集合的冻结frozenset()函数
+seta = {1, 3, 4, 5, 6, 8}
+setb = {2, 4, 6, 9, 0, 6}
+print(type(frozenset(seta)))  # 将集合转化为一个新的类，集合的存在的是可边数据，转化以后变成了存放不可变数据的集合
+print(frozenset(seta))  # 该类型得集合不能对数据进行修改，无法使用add(),pop(),remote()等方法，而交集并集这些取值不更改数据得方法可以正常使用
+
+list001 = [25, 18, 12, 22, 31, 17, 26, 19, 18, 10]
+aaa = filter(lambda x: x >= 20, list001)
+bbb = map(lambda x: x + 1, list001)
+print(list(aaa))
+print(list(bbb))
+
+
