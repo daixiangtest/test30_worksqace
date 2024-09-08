@@ -61,3 +61,29 @@ for i in range(len(list1) - 1):  # 0,1,2,3,4
             list1[j], list1[j + 1] = list1[j + 1], list1[j]
 
 print(list1)
+
+# 列表的循环推导式
+# 获取1到20直接的勾股定理函数a**2+b**2==c**2
+x2 = []
+for a in range(1, 20):
+    for b in range(a, 20):
+        for c in range(b, 20):
+            if a ** 2 + b ** 2 == c ** 2:
+                x2.append([a, b, c])
+print(x2)
+# 使用推导式的方式可以简化代码量
+x = [[a, b, c] for a in range(1, 20) for b in range(a, 20) for c in range(b, 20) if a ** 2 + b ** 2 == c ** 2]
+print(x)
+
+# enumerate()函数
+lits1 = ["香蕉", "苹果", "橘子", "葡萄"]
+for i, j in enumerate(lits1, 1):  # 遍历列表中的元素并为每个元素计数，i为计数，j为元素，1代表从1开始遍历
+    print(i, j)
+
+# 将连个列表合并不能有重复的元素
+plays = ['张三', "李四", "王二", "马五"]
+teams = ['michael', "张三", "马五", "tom"]
+print(dir(plays))
+a = plays + teams
+b = list(set(a))
+print(b)

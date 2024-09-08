@@ -76,8 +76,8 @@ str9 = str8 % ('安徽', 20, 2022, 15.5)
 print(str9)  # 小花来自安徽，年龄20，2022年来自山海，目前工资15.500000k
 
 # 3.直接填充变量
-name = 'xiaohua'
-print(f'{name}很漂亮')  # xiaohua很漂亮
+name1 = 'xiaohua'
+print(f'{name1}很漂亮')  # xiaohua很漂亮
 
 # 6.字符串的转义符:在python中\n代表换行,t代表制表符,相当于一个tab键,添加需要符号时需要以\加符号
 str10 = '落霞与\\孤鹜齐\n飞，秋水共长天\t一色'
@@ -89,3 +89,11 @@ print(str10)  # 落霞与\\孤鹜齐\n飞，秋水共长天\t一色
 
 # 注意：在写路径时很容易产生字符串转义的问题
 path = r'D:\tools\WorkSpace\day01'
+
+# endswith()函数判断文件后缀
+file1 = "test.py"
+file2 = "test.txt"
+file3 = "test.java"
+print(file1.endswith(".py"))  # 字符串后缀是否包含该字段结果返回布尔类型
+print(file2.endswith("txt"))
+print(file3.endswith(".py"))
